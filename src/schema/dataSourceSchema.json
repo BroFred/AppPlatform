@@ -1,0 +1,41 @@
+{
+  "$id":"dataSourceSchema",
+  "type": "object",
+  "properties": {
+      "/": {}
+  },
+  "patternProperties": {
+      "^((?!\\{|\\})[A-Za-z])*$": { 
+        "type":"object",
+        "properties": {
+          "type": {"enum":["uql","data"]},
+          "query": {"type":"string"}
+        },
+        "additionalProperties": true,
+        "allOf": [
+          {
+            "if": {
+              "properties": { "type": { "const": "uql" } }
+            },
+            "then":{
+              "properties": { "query": {"type":"string"} },
+              "required": ["query"]
+            }
+          },
+          {
+            "if": {
+              "properties": { "type": { "const": "data" } }
+            },
+            "then":{
+              "properties": { "data": { "anyOf": [
+                { "type": "object" },
+                { "type": "array" }
+              ]}},
+              "required": ["data"]
+            }
+          }
+        ]
+      }
+  },
+  "additionalProperties": false
+}

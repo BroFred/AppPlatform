@@ -1,0 +1,12 @@
+{
+  "$id": "definition.json",
+  "type": "object",
+  "properties": {
+    "token": {
+      "$ref": "tokenSchema"
+    },
+    "dataSource": {
+      "$ref": "dataSourceSchema"
+    }
+  }
+}
