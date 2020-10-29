@@ -11,9 +11,10 @@ import jsonMap from 'json-source-map';
 import ajvErrors from 'ajv-errors';
 
 // import validation schema
+import sample from './schema/sample.json';
 import schema from './schema/definition.json';
 import tokenSchema from './schema/tokenSchema.json';
-import uqlSchema from './schema/dataSourceSchema.json'
+import dataSourceSchema from './schema/dataSourceSchema.json'
 import vizSchema from './schema/vizSchema.json'
 import formSchema from './schema/formSchema.json'
 import layoutSchema from './schema/layoutSchema.json'
@@ -22,7 +23,7 @@ const ajv = new Ajv({allErrors: true, jsonPointers: true});
 ajvErrors(ajv)
 const validate = ajv
 .addSchema(tokenSchema)
-.addSchema(uqlSchema)
+.addSchema(dataSourceSchema)
 .addSchema(vizSchema)
 .addSchema(formSchema)
 .addSchema(layoutSchema)
@@ -31,7 +32,7 @@ const validate = ajv
 
 function App() {
   const inputEl = useRef(null);
-  const [dataInput, setdataInput] = useState(JSON.stringify({}));
+  const [dataInput, setdataInput] = useState(JSON.stringify(sample, null, 2));
   const [annotationString, setannotationString] = useState("[]");
   const onChange = (newValue) => {
     setdataInput(newValue)

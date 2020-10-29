@@ -2,12 +2,24 @@
   "$id": "definition.json",
   "type": "object",
   "properties": {
-    "token": {
+    "tokens": {
       "$ref": "tokenSchema"
+    },
+    "dataSources": {
+      "$ref": "dataSourceSchema"
+    },
+    "visualizations":{
+      "$ref": "vizSchema"
+    },
+    "forms":{
+      "$ref": "formSchema"
+    },
+    "layout": {
+      "$ref": "layoutSchema"
     }
   },
   "additionalProperties": false,
   "errorMessage": {
-    "additionalProperties": "Only token, dataSource, visualization, form and layout are allowed as key"
+    "additionalProperties": "Only tokens, dataSources, visualizations, forms and layout are allowed as key"
   }
 }

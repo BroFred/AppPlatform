@@ -8,6 +8,11 @@
           "type": "Layout type should be a string"
         }
       },
-      "structure": { "type": "object" }
+      "structure": {
+        "anyof":[
+          { "type": "object" },
+          { "type": "array" }
+        ]
+      }
   }
 }
