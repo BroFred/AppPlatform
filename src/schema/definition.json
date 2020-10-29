@@ -4,9 +4,10 @@
   "properties": {
     "token": {
       "$ref": "tokenSchema"
-    },
-    "dataSource": {
-      "$ref": "dataSourceSchema"
     }
+  },
+  "additionalProperties": false,
+  "errorMessage": {
+    "additionalProperties": "Only token, dataSource, visualization, form and layout are allowed as key"
   }
 }

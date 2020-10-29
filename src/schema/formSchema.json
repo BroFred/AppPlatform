@@ -1,0 +1,47 @@
+{
+  "$id": "formSchema",
+  "type": "object",
+  "properties": {
+    "/": {}
+  },
+  "patternProperties": {
+    "^((?!\\{|\\})[A-Za-z])*$": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "errorMessage": {
+            "type": "form title should be a string"
+          }
+        },
+        "type": {
+          "type": "string",
+          "errorMessage": {
+            "type": "form type should be a string"
+          }
+        },
+        "options":{
+          "type": "object"
+        },
+        "tokens": {
+          "type": "object",
+          "properties": {
+            "/": {}
+          },
+          "patternProperties": {
+            "^((?!\\{|\\})[A-Za-z])*$": {
+              "type": "string",
+              "errorMessage": {
+                "type": "form.token value should be a string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "errorMessage": {
+    "additionalProperties": "form name should only contain alphabet"
+  }
+}

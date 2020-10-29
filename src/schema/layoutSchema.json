@@ -1,0 +1,13 @@
+{
+  "$id":"layoutSchema",
+  "type": "object",
+  "properties": {
+      "type": { 
+        "type": "string", 
+        "errorMessage": {
+          "type": "Layout type should be a string"
+        }
+      },
+      "structure": { "type": "object" }
+  }
+}

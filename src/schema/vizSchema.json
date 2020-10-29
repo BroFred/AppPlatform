@@ -1,0 +1,35 @@
+{
+  "$id": "vizSchema",
+  "type": "object",
+  "properties": {
+    "/": {}
+  },
+  "patternProperties": {
+    "^((?!\\{|\\})[A-Za-z])*$": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "options":{
+          "type": "object"
+        },
+        "dataSources": {
+          "type": "object",
+          "properties": {
+            "/": {}
+          },
+          "patternProperties": {
+            "^((?!\\{|\\})[A-Za-z])*$": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+}
